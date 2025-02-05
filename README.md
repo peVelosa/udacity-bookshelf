@@ -1,50 +1,76 @@
-# React + TypeScript + Vite
+# React TypeScript Vite Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was developed for the [Udacity ND019 Course](https://www.udacity.com/enrollment/nd019) and meets all the requirements specified in the project rubric.
 
-Currently, two official plugins are available:
+## Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Overview](#overview)
+- [Built With](#built-with)
+- [Folder Structure](#folder-structure)
+- [Routing](#routing)
+- [Styling](#styling)
+- [Getting Started](#getting-started)
 
-## Expanding the ESLint configuration
+## Overview
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+This project is a web application built with React, TypeScript, and Vite. It leverages modern web development tools and practices to provide a robust and scalable codebase. All rubric requirements for the course project have been fully completed.
 
-- Configure the top-level `parserOptions` property like this:
+## Built With
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **React** - A JavaScript library for building user interfaces.
+- **TypeScript** - A strongly typed programming language that builds on JavaScript.
+- **Vite** - A fast and lean development server and build tool.
+- **React Router DOM** - For declarative routing in React applications.
+- **Tailwind CSS** - A utility-first CSS framework for styling.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Folder Structure
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **`@types`**: Contains the global types for the application.
+- **`features`**: Contains the page components.
+- **`hooks`**: Contains custom hooks (both global and local).
+- **`context`**: Contains context providers (both global and local).
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Routing
+
+This project uses `react-router-dom` for routing. The following routes have been implemented:
+
+- **`/`**: Home page.
+- **`/search`**: Search page.
+- **`/*`**: Catch-all route for handling not found paths.
+
+## Styling
+
+Tailwind CSS is used for styling the application, providing a streamlined and efficient way to style components with utility classes.
+
+## Getting Started
+
+Follow these instructions to get the project up and running on your local machine.
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/your-repo.git
+   cd your-repo
+    ```
+
+2. **Install dependencies:**
+  
+    ```bash
+     npm install
+    ```
+
+3. **Run the project:**
+
+    ```bash
+     npm start
+    ```
+
+The application will start on [http://localhost:5173](http://localhost:5173) by default.
+
+
