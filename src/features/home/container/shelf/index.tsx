@@ -6,25 +6,6 @@ type Props = {
   bookStatus: string;
 };
 
-const OPTIONS = [
-  {
-    label: "Currently Reading",
-    value: "currentlyReading",
-  },
-  {
-    label: "Want to Read",
-    value: "wantToRead",
-  },
-  {
-    label: "Read",
-    value: "read",
-  },
-  {
-    label: "None",
-    value: "none",
-  },
-];
-
 export const Shelf = (props: Props) => {
   const { title, bookStatus } = props;
 
@@ -39,7 +20,7 @@ export const Shelf = (props: Props) => {
         {data
           ?.filter((book) => book.shelf === bookStatus)
           ?.map((book) => (
-            <Book key={book.id} {...{ ...book, options: OPTIONS }} />
+            <Book key={book.id} {...book} />
           ))}
       </div>
     </article>

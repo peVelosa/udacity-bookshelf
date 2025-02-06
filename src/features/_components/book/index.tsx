@@ -3,17 +3,34 @@ import { BookVolume } from "../../../@types/book";
 import { useBook } from "../../../context/book";
 import { update } from "../../../server/BooksAPI";
 
-type Props = BookVolume & {
-  options: { label: string; value: string }[];
-};
+type Props = BookVolume
+
+const OPTIONS = [
+  {
+    label: "Currently Reading",
+    value: "currentlyReading",
+  },
+  {
+    label: "Want to Read",
+    value: "wantToRead",
+  },
+  {
+    label: "Read",
+    value: "read",
+  },
+  {
+    label: "None",
+    value: "none",
+  },
+];
 
 export const Book = (props: Props) => {
-  const { title, imageLinks, authors, options } = props;
+  const { title, imageLinks, authors } = props;
 
   const { data, refetch } = useBook();
 
   const [statusValue, setStatusValue] = useState(
-    data?.find((book) => book.id === props.id)?.shelf ?? "move"
+    data?.find((book) => book.id === props.id)?.shelf ?? "none"
   );
 
   const onUpdateStatus = async (data: React.ChangeEvent<HTMLSelectElement>) => {
@@ -45,7 +62,7 @@ export const Book = (props: Props) => {
         <option value="move" disabled>
           Move to...
         </option>
-        {options.map((option) => (
+        {OPTIONS.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}
           </option>

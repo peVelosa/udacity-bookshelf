@@ -12,21 +12,6 @@ interface SearchError {
 
 type ISearch = BookVolume[] | SearchError;
 
-const OPTIONS = [
-  {
-    label: "Currently Reading",
-    value: "currentlyReading",
-  },
-  {
-    label: "Want to Read",
-    value: "wantToRead",
-  },
-  {
-    label: "Read",
-    value: "read",
-  },
-];
-
 export const SearchPage = () => {
   const [searchInput, setSearchInput] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
@@ -76,7 +61,7 @@ export const SearchPage = () => {
       {data !== null && !isErrorResponse(data) && !isLoading && (
         <div className="grid grid-cols-1 gap-4 container mx-auto md:grid-cols-3 lg:grid-cols-4">
           {data?.map((book: BookVolume) => (
-            <Book key={book.id} {...{ ...book, options: OPTIONS }} />
+            <Book key={book.id} {...book} />
           ))}
         </div>
       )}
