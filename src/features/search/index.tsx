@@ -47,7 +47,7 @@ export const SearchPage = () => {
         </button>
         <input
           type="text"
-          value={searchInput}
+          value={searchInput ?? ""}
           onChange={onChange}
           placeholder="Search by title, author or ISBN"
           className="w-full p-2"
